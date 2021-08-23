@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { FeedDate } from './FeedDate';
+import { DateInput } from './DateInput';
 
 // Add the new stack navigator above this line
 
@@ -42,12 +44,15 @@ const FeedScreen = ({ navigation }) => (
 const FeedPicsScreen = () => (
   <View style={styles.layout}>
     <Text style={styles.title}>Feed Pics</Text>
+    <FeedDate />
   </View>
 );
 
 const MessagesScreen = () => (
   <View style={styles.layout}>
     <Text style={styles.title}>Messages</Text>
+    <Text style={styles.text}>Click to change the date of the message</Text>
+    <DateInput />
   </View>
 );
 
@@ -85,6 +90,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
+    marginBottom: 16,
+  },
+  text: {
+    fontSize: 20,
     marginBottom: 16,
   },
 });
